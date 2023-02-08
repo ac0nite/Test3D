@@ -13,36 +13,29 @@ namespace Utils
     }
     public class SimplePool<T> : ISimplePool<T> where T : Component
     {
-        private Transform _parent;
         private List<T> _pool = new List<T>();
-        private T _prefab;
 
-        public SimplePool(int count, T prefab, Transform parent)
+        public SimplePool(T[] array)
         {
-            _parent = parent;
-            _prefab = prefab;
-
-            Spawn(count);
+            _pool.AddRange(array);
         }
 
         public T GetPool()
         {
-            for (int i = 0; i < _pool.Count; i++)
-            {
-                if (!_pool[i].gameObject.activeInHierarchy)
-                {
-                    return _pool[i];
-                }
-            }
+            return _pool.Where(value => !value.gameObject.activeInHierarchy).ElementAt(0);
+        }
         
-            return null;
+        public T GetRandomPool()
+        {
+            var available = _pool.Where(value => !value.gameObject.activeInHierarchy);
+            return _pool.Where(value => !value.gameObject.activeInHierarchy).ElementAt(UnityEngine.Random.Range(0, available.Count()));
         }
 
         public void SetPool(T value)
         {
             value.gameObject.SetActive(false);
-            value.transform.localPosition = Vector3.zero;
-            value.transform.rotation = Quaternion.identity;
+            //value.transform.localPosition = Vector3.zero;
+            //value.transform.rotation = Quaternion.identity;
         }
 
         public void Release()
@@ -57,21 +50,6 @@ namespace Utils
         public List<T> Active()
         {
             return _pool.Where(value => value.gameObject.activeInHierarchy).ToList();
-        }
-
-        private void Spawn(int count)
-        {
-            GameObject value;
-            for (int i = 0; i < count; i++)
-            {
-                value = GameObject.Instantiate(_prefab.gameObject, _parent);
-            
-                value.transform.localPosition = Vector3.zero;
-                value.transform.rotation = Quaternion.identity;
-            
-                value.SetActive(false);
-                _pool.Add(value.GetComponent<T>());
-            }
         }
     }
 }

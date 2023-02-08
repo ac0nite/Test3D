@@ -90,16 +90,17 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8499898484962030591}
-  - component: {fileID: 803615027730724659}
   - component: {fileID: 8108394943073701593}
   - component: {fileID: 3167021925782100043}
+  - component: {fileID: 599765282}
+  - component: {fileID: 2882316451848615989}
   m_Layer: 6
   m_Name: Rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8499898484962030591
 Transform:
   m_ObjectHideFlags: 0
@@ -115,19 +116,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &803615027730724659
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4966923846615666532}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.8993025, z: 1}
-  m_Center: {x: 0, y: -0.011405468, z: 0}
 --- !u!54 &8108394943073701593
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -158,8 +146,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 8108394943073701593}
   _input: {fileID: 0}
-  _forceSpeed: 0.34
-  _torqueSpeed: 2.36
-  _turnSpeed: 2.62
+  _forceSpeed: 0.44
+  _turnSpeed: 3.73
+  _rollSpeed: 3.38
+  _alignmentSpeed: 0.8
+  _torqueSpeed: 5.52
   _isThrust: 0
   _isRoll: 0
+--- !u!114 &599765282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4966923846615666532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de43c426132c4c8b8bb8f90bc60aaca6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &2882316451848615989
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4966923846615666532}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.39422703
+  m_Height: 1.900975
+  m_Direction: 1
+  m_Center: {x: -0.0152311325, y: -0.073354244, z: -0.09054184}

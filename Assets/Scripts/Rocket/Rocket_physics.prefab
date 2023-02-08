@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1006900398499963969}
-  - component: {fileID: 1006900398499964028}
   - component: {fileID: 1006900398499964031}
+  - component: {fileID: 6978745181256094732}
   - component: {fileID: 1006900398499964030}
+  - component: {fileID: 1079143892}
   m_Layer: 6
   m_Name: Rocket_physics
   m_TagString: Untagged
@@ -34,19 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1006900398499964028
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1006900398499963968}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.8993025, z: 1}
-  m_Center: {x: 0, y: -0.011405468, z: 0}
 --- !u!54 &1006900398499964031
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -61,8 +49,22 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 24
   m_CollisionDetection: 0
+--- !u!136 &6978745181256094732
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006900398499963968}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.34785992
+  m_Height: 1.819216
+  m_Direction: 1
+  m_Center: {x: -0.005851567, y: -0.01755464, z: 0}
 --- !u!114 &1006900398499964030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,20 +78,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 1006900398499964031}
-  _collider: {fileID: 0}
   _input: {fileID: 0}
-  _force: 15
-  _torque: 60
-  _speedAngle: 10
-  _isThrust: 0
-  _direction: {x: 0, y: 0, z: 0}
-  _velocity: {x: 0, y: 0, z: 0}
-  _mode: 5
-  _percent: 0
-  _dirTorque: {x: 0, y: 0, z: 0}
-  _ratate: 0
-  _targetAngle: {x: 0, y: 0, z: 0}
-  _currentAngle: {x: 0, y: 0, z: 0}
+  _force: 16
+  _torque: 9
+--- !u!114 &1079143892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006900398499963968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de43c426132c4c8b8bb8f90bc60aaca6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6254159647939994900
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,7 +152,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1325953c001704e11a8df98f63203a87, type: 2}
+  - {fileID: 2100000, guid: f4344ff65d92c4dc996fd27abc0fcde5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

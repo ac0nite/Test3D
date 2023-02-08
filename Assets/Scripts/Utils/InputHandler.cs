@@ -36,11 +36,11 @@ namespace Utils
             get => !_image.raycastTarget;
             set
             {
-                if (value)
-                {
-                    OnInputEndDrag?.Invoke(null);
-                    OnInputUp?.Invoke(null);
-                }
+                // if (value)
+                // {
+                //     OnInputEndDrag?.Invoke(null);
+                //     OnInputUp?.Invoke(null);
+                // }
                 
                 _image.raycastTarget = !value;
             }
